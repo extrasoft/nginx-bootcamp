@@ -1,0 +1,47 @@
+// run docker
+docker run -d --name my-nginx -p 8080:80 nginx
+
+// เข้าไปข้างใน docker
+docker exec -it my-nginx bash
+
+// เข้าไปหาไฟล์ config
+cd etc/nginx
+
+// เข้าไปอ่านไฟล์ nginx.conf
+cat nginx.conf // /etc/nginx/nginx.conf
+
+// เข้าไปหาไฟล์ html
+cd usr/share/nginx/html/
+
+// หา OS ภายใน container
+cat /etc/os-release
+
+// ติดตั้ง command ใน docker เช่น nanmo, vim
+apt-get update --อัพเดทคำสั่ง
+apt-get install nano, vim
+
+*** nano กับ vim ใช้สำหรับ แก้ไขไฟล์
+//nano index.html 
+    -- ถ้าจะ save กด ctrl+x => y
+
+
+//vim index.html  
+    -- ต้องเปลี่ยนโหมดเป็นแก้ไขก่อนด้วยการกดตัว i
+    -- ต้องการออกจากการเขียนไฟล์ให้กด ESC แล้วพิมพ์ :wq (write+quite)
+
+// run docker by mount
+docker run -d --name my-nginx -p 8080:80 -v C:\Programming\nginx_bootcamp\demo:/usr/share/nginx/html/ nginx
+หรือ
+docker run -d --name my-nginx -p 8080:80 -v %cd%\demo:/usr/share/nginx/html/ nginx  
+
+// หา path ปัจจุบัน
+echo %cd% --สำหรับ windows
+echo $(pwd) --สำหรับ mac
+
+
+// restart container
+docker restart my-nginx
+
+
+// run docker6 by mount nginx
+docker run -d --name my-nginx -p 8080:80 -v %cd%\demo:/usr/share/nginx/html/ -v %cd%\conf\nginx.conf:/etc/nginx/nginx.conf nginx
