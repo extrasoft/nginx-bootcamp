@@ -45,3 +45,7 @@ docker restart my-nginx
 
 // run docker6 by mount nginx
 docker run -d --name my-nginx -p 8080:80 -v %cd%\demo:/usr/share/nginx/html/ -v %cd%\conf\nginx.conf:/etc/nginx/nginx.conf nginx
+
+// เขียนทับ url ที่เข้ามา 
+rewrite ^/user/team /hello/team;
+*** ^ หมายถึงต้องขึ้นต้นด้วยแบบนี้เท่านั้น
