@@ -51,10 +51,18 @@ rewrite ^/user/team /hello/team;
 *** ^ หมายถึงต้องขึ้นต้นด้วยแบบนี้เท่านั้น
 
 root เป็นการกำหนด root path ของ nginx
+
 index เป็นการค้นหาไฟล์ไปเรื่อยๆ
+
 autoindex จะเป็นการเปิดให้เห็น index path บน browser
+
 try_files คล้ายๆ index แต่จะมีข้อแตกต่างตัวสุดท้ายจะเป็นการ rewrite ในกรณีที่ไม่เจอไฟล์
+
 access_log 
     จะเป็นการเก็บ log ทั้งหมดเมื่อมีการเรียกใช้งาน nginx server
     default path : logs/access.log
     วิธีใช้ docker logs -f my-nginx (-f ย่อมาจาก follow คือจะดูได้แบบ realtime)
+
+worker process ตัวประมวลผลเมื่อมีการ request เข้ามาที่ server ของเรา
+
+buffer เป็นส่วนหนึ่งของหน่วยความจำที่ใช้สำหรับพักข้อมูลเป็นการชั่วคราวในระหว่างทำการถ่ายทอดหรือส่งผ่านข้อมูล ไปยังปลายทาง เช่น CPU, Harddisk, Network
