@@ -71,3 +71,13 @@ timeouts
     เป็นการตั้งค่าเวลาในการติดต่อกับ server ถ้าเกินจะตัดและ response อะไรกลับไป
     สามารถตั้งเวลาได้ทั้ง request และ response
 
+******** ติดตั้ง nginx+php *******
+docker exec -it my-nginx bash
+
+apt-get update              อัพเดท service
+apt-get install php-fpm     ติดตั้ง service php-fpm
+service --status-all        เช็ค service ที่ติดตั้ง
+service php7.3-fpm start    start, stop, restart, status    
+service php7.3-fpm status
+
+
