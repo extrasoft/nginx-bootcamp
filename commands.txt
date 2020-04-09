@@ -81,3 +81,4 @@ service php7.3-fpm start    start, stop, restart, status
 service php7.3-fpm status
 
 
+docker run -d --name my-api -p 3000:3000 olanlab/json-server 
